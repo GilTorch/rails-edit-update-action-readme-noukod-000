@@ -464,3 +464,29 @@ Completed 302 Found in 11ms (ActiveRecord: 2.7ms)
 Started GET "/posts/3" for 190.102.85.235 at 2019-01-21 19:17:03 +0000
 Processing by PostsController#show as HTML
   Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.2ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  Rendered posts/show.html.erb within layouts/application (0.9ms)
+Completed 200 OK in 50ms (Views: 32.5ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/posts/3/edit" for 190.102.85.235 at 2019-01-21 19:17:08 +0000
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.2ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  Rendered posts/edit.html.erb within layouts/application (90.8ms)
+Completed 200 OK in 123ms (Views: 118.9ms | ActiveRecord: 0.2ms)
+
+
+Started PATCH "/posts/3" for 190.102.85.235 at 2019-01-21 19:17:11 +0000
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"aEBbv1UsCucb67BnUxoqlclc33tBEDABBcBopKZ4JP5behu3FYtW3n5trXovMRIJ7jW0PtFD3Lu5mn8hM6rW1w==", "post"=>{"title"=>"God of War 3", "description"=>"A nice and rich game!"}, "commit"=>"Submit Post", "id"=>"3"}
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms)
+
+NameError (uninitialized constant PostsController::Article):
+  app/controllers/posts_controller.rb:27:in `update'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_source.erb (6.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.3.1/gems/actionpack-4.2.11/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (67.6ms)
